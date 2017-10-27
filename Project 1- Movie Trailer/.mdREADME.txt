@@ -1,5 +1,14 @@
 Getting Started
+To use this project you need to have python installed
 
+
+How to run the code
+1. Download the code
+2. Run entertainment_center.py
+3. Enjoy!
+
+
+Files Included
 media.py
 This code provides a way to store movie related information by creating a movie title, storyline, poster image, and youtube trailer for a movie.
 
@@ -9,11 +18,3 @@ This code uses media.py to create movie information for three movies: Rambo, Fin
 fresh_tomatoes.py
 Provided by the course.
 
-
-How to run the code
-
-To use this project you need to have python installed
-
-1. Download the code
-2. Run entertainment_center.py
-3. Enjoy!
