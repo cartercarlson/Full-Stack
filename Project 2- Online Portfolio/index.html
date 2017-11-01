@@ -3,39 +3,81 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css.">
+    <link rel="stylesheet" href="css/style.css">
     <title>Carter's Portfolio</title>
+    <style type="text/css"> /* Code for responsiveness */ 
+      @media screen and (min-width: 1000px) {
+        .name {
+          font-size: 44px;
+        }
+        .name-description {
+          font-size: 30px;
+        }
+      }
+      @media screen and (max-width: 870px) {
+        .name {
+          font-size: 32px;
+        }
+        .name-description {
+          font-size: 20px;
+        }
+        .image {
+          width: 50%;
+        }
+      }
+      @media screen and (max-width: 675px) {
+        .name {
+          font-size: 24px;
+        }
+        .name-description {
+          font-size: 16px;
+        }
+        .image {
+          display: block;
+          width: 90%;
+        }
+      }
+  </style>
   </head>
 
   <body>
     <div class="container">
       <header>
         <div class="top">
-          <div class="left">
+          <div class="split">
             <img class="icon" src="img/icon.jpg" alt="Carter Carlson">
           </div>
-          <div class="right">
-            <h1 class="name bio-text">CARTER CARLSON</h1>
-            <h4 class="name-description bio-text">Data Analyst and Web Developer</h4>
+          <div class="split">
+            <h1 class="name">CARTER CARLSON</h1>
+            <h4 class="name-description">Data Analyst and Web Developer</h4>
           </div>
         </div>
       </header>
 
-      <section>
-        <img class="photo-cover" src="img/cover.jpg">
-      </section>
+      <div>
+        <img class="photo-cover" src="img/cover.jpg" alt="Cover Photo">
+      </div>
 
       <section>
-        <h1>Featured Items</h1>
-        <div class="">
-
+        <h3>Featured Items</h3>
+        <div class="bottom">
+          <div class="image">
+            <a href="pdf/Resume.pdf" target="_blank">
+            <img class="image-width" src="img/resume.jpg" alt="Resume"></a>
+            <span>Resume</span>
+          </div><div class="image">
+          <a href="html/machine-learning.html" target="_blank">
+            <img class="image-width" src="img/machine-learning.jpg" alt="Resume PDF"></a>
+            <span>Machine Learning</span>
+          </div><div class="image">
+          <a href="https://public.tableau.com/profile/carter.carlson#!/vizhome/Projectv2_0/ProsperLoanDataAnalysis" target="_blank">
+            <img class="image-width" src="img/tableau.jpg" alt="Tableau Image"></a>
+            <span>Tableau</span>
+          </div>
         </div>
       </section>
 
-
-
       <footer>
-        <!-- footer content goes in here -->
       </footer>
 
     </div>
