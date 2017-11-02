@@ -1,7 +1,7 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	width: 99%;
-	max-width: 99%;
+	max-width: 1200px;
 }
 
 footer {
@@ -13,13 +13,12 @@ footer {
 	flex-wrap: wrap;
 	width: 1000px;
 	max-width: 100%;
-	display: block;
 	margin: 0 auto;
 }
 
 .top {
-	width: 100%;
-	max-width: 100%;
+	width: 99%;
+	max-width: 99%;
 	margin-top: 1em;
 	text-align: right;
 	display: inline-block;
@@ -42,11 +41,10 @@ footer {
 }
 
 .name {
-	font-size: 36px;
 }
 
 .name-description {
-	font-size: 26px;
+	font-size: 30px;
 	margin-top: 2em;
 }
 
@@ -60,9 +58,10 @@ footer {
 	border-top-width: 4px;
 }
 
-.image {
+.next_image {
 	display: inline-block;
 	width: 33%;
+	min-width: 33%;
 }
 
 .image-width {
@@ -72,10 +71,48 @@ footer {
 	text-align: center;
 }
 
-.image span {
+.next_image span {
 	display: block;
 	text-align: center;
 	padding-top: 5%;
 	font-size: 1em;
 	padding-bottom: 4em;
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1200px)  {
+.name {
+  font-size: 40px;
+}
+
+.name-description {
+  font-size: 28px;
+}
+
+@media only screen and (min-width: 850px) and (max-width: 999px) {
+.name {
+  font-size: 36px;
+}
+
+.name-description {
+  font-size: 24px;
+}
+
+.next_image {
+  width: 50%;
+}
+}
+
+@media only screen and (max-width: 675px) {
+.name {
+  font-size: 24px;
+}
+
+.name-description {
+  font-size: 16px;
+}
+
+.next_image {
+  display: block;
+  width: 90%;
+}
 }
