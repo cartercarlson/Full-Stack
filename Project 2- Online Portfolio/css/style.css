@@ -1,8 +1,7 @@
 body {
 	font-family: 'Roboto', sans-serif;
-	width: 99%;
-	max-width: 1200px;
-}.
+	max-width: 100%;
+}
 
 footer {
 	height: 5em;
@@ -21,23 +20,25 @@ footer {
 	max-width: 99%;
 	margin-top: 1em;
 	text-align: right;
-	display: inline-block;
+	flex-wrap: wrap;
+	display: inline-flex;
 }
 
 .split {
 	width: 49%;
+	/* had to keep inline-block.  flex was giving too many problems */
 	display: inline-block;
 }
 
 .bottom {
-	display: inline-block;
+	flex-wrap: flex;
 	width: 100%;
 }
 
 .icon {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 	max-height: 150px;
-	display: block;
+	float: left;
 }
 
 .name {
@@ -58,9 +59,7 @@ footer {
 .photo-cover {
 	padding-top: 2%;
 	width: 100%;
-	max-width: 100%;
 	display: block;
-
 }
 
 .next_image {
@@ -75,7 +74,7 @@ footer {
 	text-align: center;
 }
 
-.next_image span {
+.next_image p {
 	display: block;
 	text-align: center;
 	padding-top: 5%;
@@ -83,8 +82,8 @@ footer {
 	padding-bottom: 4em;
 }
 
-@media screen and (min-width: 675px) {
-.name {
+@media screen and (min-width: 625px) {
+	.name {
 	  font-size: 30px;
 	}
 
@@ -93,12 +92,12 @@ footer {
 	}
 
 	.next_image {
-	  width: 50%;
+	  width: 49%;
 	}
 }
 
 @media screen and (min-width: 850px) {
-.name {
+	.name {
 	  font-size: 36px;
 	}
 
@@ -107,7 +106,7 @@ footer {
 	}
 
 	.next_image {
-	  width: 33%;
+	  width: 30%;
 	}
 }
 
