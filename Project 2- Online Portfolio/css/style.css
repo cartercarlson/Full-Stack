@@ -2,7 +2,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 	width: 99%;
 	max-width: 1200px;
-}
+}.
 
 footer {
 	height: 5em;
@@ -41,11 +41,18 @@ footer {
 }
 
 .name {
+	font-size: 24px;
 }
 
 .name-description {
-	font-size: 30px;
+	font-size: 16px;
 	margin-top: 2em;
+}
+
+.photo-border {
+	margin: 0 auto;
+	border-top: solid #2d3c49;
+	border-top-width: 4px;
 }
 
 .photo-cover {
@@ -53,15 +60,12 @@ footer {
 	width: 100%;
 	max-width: 100%;
 	display: block;
-	margin: 0 auto;
-	border-top: solid #2d3c49;
-	border-top-width: 4px;
+
 }
 
 .next_image {
 	display: inline-block;
-	width: 33%;
-	min-width: 33%;
+	width: 99%;
 }
 
 .image-width {
@@ -79,40 +83,41 @@ footer {
 	padding-bottom: 4em;
 }
 
-@media only screen and (min-width: 1000px) and (max-width: 1200px)  {
+@media screen and (min-width: 675px) {
 .name {
-  font-size: 40px;
+	  font-size: 30px;
+	}
+
+	.name-description {
+	  font-size: 20px;
+	}
+
+	.next_image {
+	  width: 50%;
+	}
 }
 
-.name-description {
-  font-size: 28px;
-}
-
-@media only screen and (min-width: 850px) and (max-width: 999px) {
+@media screen and (min-width: 850px) {
 .name {
-  font-size: 36px;
+	  font-size: 36px;
+	}
+
+	.name-description {
+	  font-size: 24px;
+	}
+
+	.next_image {
+	  width: 33%;
+	}
 }
 
-.name-description {
-  font-size: 24px;
-}
+@media screen and (min-width: 1000px) {
+	.name {
+	  font-size: 40px;
+	}
 
-.next_image {
-  width: 50%;
-}
-}
+	.name-description {
+	  font-size: 28px;
+	}
 
-@media only screen and (max-width: 675px) {
-.name {
-  font-size: 24px;
-}
-
-.name-description {
-  font-size: 16px;
-}
-
-.next_image {
-  display: block;
-  width: 90%;
-}
 }
