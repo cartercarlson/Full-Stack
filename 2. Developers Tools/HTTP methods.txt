@@ -1,0 +1,26 @@
+GET
+
+POST
+
+PUT
+-create new resources
+-server should respond with a 201 Created status code
+-after a PUT, a GET to the same URI should return the new resource
+
+DELETE
+-removes a resource from the server
+-after a DELETE, a GET will return 404 Not Found (unless a new resource is made with the same name)
+
+PATCH
+-changes a resources
+
+HEAD
+-works like GET, but doesn't return content
+-only returns headers
+
+OPTIONS
+-used to find out what features the server supports
+
+TRACE
+-echoes back what the server received form the client
+-often disabled for security reasons
