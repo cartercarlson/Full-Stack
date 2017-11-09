@@ -1,0 +1,29 @@
+Query 1
+
+       title        | views
+--------------------+--------
+ Candidate-is-jerk  | 342102
+ Bears-love-berries | 256365
+ Bad-things-gone    | 171762
+(3 rows)
+
+
+
+Query 2
+
+          name          | views
+------------------------+--------
+ Ursula La Multa        | 512805
+ Rudolf von Treppenwitz | 427781
+ Anonymous Contributor  | 171762
+ Markoff Chaney         |  85387
+(4 rows)
+
+
+
+Query 3
+
+    date    |      percent
+------------+--------------------
+ 2016-07-17 | 2.2626862468027260
+(1 row)
