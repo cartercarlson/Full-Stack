@@ -1,29 +1,16 @@
-Query 1
+What are the top three articles of all time?
 
-       title        | views
---------------------+--------
- Candidate-is-jerk  | 342102
- Bears-love-berries | 256365
- Bad-things-gone    | 171762
-(3 rows)
+  Candidate is jerk, alleges rival -- 338647 views
+  Bears love berries, alleges bear -- 253801 views
+  Bad things gone, say good people -- 170098 views
 
+Who are the most popular article authors of all time?
 
+  Ursula La Multa -- 507594 views
+  Rudolf von Treppenwitz -- 423457 views
+  Anonymous Contributor -- 170098 views
+  Markoff Chaney -- 84557 views
 
-Query 2
+Which day did more than 1 percent of requests lead to errors?
 
-          name          | views
-------------------------+--------
- Ursula La Multa        | 512805
- Rudolf von Treppenwitz | 427781
- Anonymous Contributor  | 171762
- Markoff Chaney         |  85387
-(4 rows)
-
-
-
-Query 3
-
-    date    |      percent
-------------+--------------------
- 2016-07-17 | 2.2626862468027260
-(1 row)
+  2016-07-17 -- 2.26%
