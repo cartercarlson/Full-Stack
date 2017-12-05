@@ -1,0 +1,5 @@
+nc
+'netcat'
+
+|
+take the output on the left to the address on the right

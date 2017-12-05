@@ -3,15 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cat Clicker </title>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-	<div>
+	<div class="split">
 		<img src="cat.jpg"; alt="Cat" id="kitten">
-		<div>
-			<p>Number of clicks: <span class=message></span></p>
+		<p>Click count: <span id="count"></span></p>
 	</div>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js/script.js"></script>
-
 </body>
 </html>
