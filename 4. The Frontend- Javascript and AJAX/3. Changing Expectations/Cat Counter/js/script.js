@@ -16,6 +16,7 @@ elem.addEventListener('click', function(){
 
 
 
+*/
 
 var clickCount = $('#count');
 var i = 0;
@@ -27,7 +28,7 @@ $('#kitten').click(function() {
 });
 
 
-var catOneTag = $('#kitten');
+var catOneTag = $('.split');
 var catTwo = $('<div class="split"><img src="Cat2.jpg" alt="Cat 2" id="kitten2">');
 var newP = $('<p>Click Count: <span id="count2"></span></p></div>');
 
@@ -45,11 +46,11 @@ $('#kitten2').click(function() {
 	b++;
 	clickCount2.text(b);
 });
-*/
 
 
 
 
+/*
 function checkClick(){
 	this.click(function() {
 		b++;
