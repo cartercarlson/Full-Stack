@@ -1,30 +1,61 @@
-/* STUDENTS IGNORE THIS FUNCTION
- * All this does is create an initial
- * attendance record if one is not found
- * within localStorage.
- */
-(function() {
-    if (!localStorage.attendance) {
-        console.log('Creating attendance records...');
-        function getRandom() {
-            return (Math.random() >= 0.5);
-        }
+var model = {
+    students: [{
+        name: "Slappy the Frog",
+        daysMissed: 0
+    },
+    {
+        name: "Lilly the Lizard",
+        daysMissed: 0
+    },
+    {
+        name: "Paulrus the Platapus",
+        daysMissed: 0
+    },
+    {
+        name: "Adam the Anaconda",
+        daysMissed: 0
+    },
+    {
+        name: "Gregory the Goat",
+        daysMissed: 0
+    }]
+};
 
-        var nameColumns = $('tbody .name-col'),
-            attendance = {};
+var octopus = {
+    init: function(){
+        /*  ??  */
+    },
 
-        nameColumns.each(function() {
-            var name = this.innerText;
-            attendance[name] = [];
+    getStudents: function(){
+        return model.students;
+    },
 
-            for (var i = 0; i <= 11; i++) {
-                attendance[name].push(getRandom());
+
+};
+
+
+
+var View = { 
+    init: function(){
+        /*   */
+    },
+
+    render: function(){
+        var student, elem, i, days;
+        var students = octopus.getStudents();
+
+        for (i = 0; i < students.length; i++) {
+            student = students[i];
+            for (days = 1; days < 13: days++) {
+                
             }
-        });
-
-        localStorage.attendance = JSON.stringify(attendance);
+        };   
     }
-}());
+};
+
+
+
+
 
 
 /* STUDENT APPLICATION */
@@ -82,3 +113,30 @@ $(function() {
 
     countMissing();
 }());
+
+
+
+
+/* (function() {
+    if (!localStorage.attendance) {
+        console.log('Creating attendance records...');
+        function getRandom() {
+            return (Math.random() >= 0.5);
+        }
+
+        var nameColumns = $('tbody .name-col'),
+            attendance = {};
+
+        nameColumns.each(function() {
+            var name = this.innerText;
+            attendance[name] = [];
+
+            for (var i = 0; i <= 11; i++) {
+                attendance[name].push(getRandom());
+            }
+        });
+
+        localStorage.attendance = JSON.stringify(attendance);
+    }
+}());
+*/

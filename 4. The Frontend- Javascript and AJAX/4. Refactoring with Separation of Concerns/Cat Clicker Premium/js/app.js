@@ -51,7 +51,7 @@ var octopus = {
 		model.currentCat = cat;
 	},
 
-	incrementCounter: function(){
+	incrementCounter: function(){ 
 		model.currentCat.clickCount++;
 		catView.render();
 	}
