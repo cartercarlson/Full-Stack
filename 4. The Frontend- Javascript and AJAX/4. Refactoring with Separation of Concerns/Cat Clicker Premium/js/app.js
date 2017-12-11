@@ -1,29 +1,29 @@
 var model = {
-	currentCat = null;
+	currentCat: null,
 	cats: [{
 		clickCount : 0,
 		name : 'Tabby',
-		imgSrc : 'cat_picture1.jpg'
+		imgSrc : 'img/cat_picture1.jpg'
 	},
 	{
 		clickCount : 0,
 		name : 'Fatty',
-		imgSrc : 'cat_picture2.jpeg'
+		imgSrc : 'img/cat_picture2.jpeg'
 	},
 	{
 		clickCount : 0,
 		name : 'Bashful',
-		imgSrc : 'cat_picture3.jpeg'
+		imgSrc : 'img/cat_picture3.jpeg'
 	},
 	{
 		clickCount : 0,
 		name : 'Asshole',
-		imgSrc : 'cat_picture4.jpeg'
+		imgSrc : 'img/cat_picture4.jpeg'
 	},
 	{
 		clickCount : 0,
 		name : 'Pussy',
-		imgSrc : 'cat_picture5.jpeg'
+		imgSrc : 'img/cat_picture5.jpeg'
 	}]
 };
 
@@ -36,6 +36,7 @@ var octopus = {
 		model.currentCat = model.cats[0];
 		catListView.init();
 		catView.init();
+		adminView.init();
 	},
 
 	getCurrentCat: function(){
@@ -59,16 +60,16 @@ var octopus = {
 
 var catView = {
 	init: function(){
-		this.catElem = document.getElementID('cat');
-		this.catNameElem = document.getElementID('cat-name');
-		this.catCountElem = document.getElementID('cat-count');
-		this.catImageElem = document.getElementID('cat-img');
+		this.catElem = document.getElementByID('cat');
+		this.catNameElem = document.getElementByID('cat-name');
+		this.catCountElem = document.getElementByID('cat-count');
+		this.catImageElem = document.getElementByID('cat-img');
 
 		this.catImageElem.addEventListener('click', function(){
 			octopus.incrementCounter();
 		});
 
-		this.render;
+		this.render();
 	},
 
 	render: function(){
@@ -81,7 +82,7 @@ var catView = {
 
 var catListView = {
 	init: function(){
-		this.catListElem = document.getElementID('cat-list');
+		this.catListElem = document.getElementByID('cat-list');
 		this.render();
 	},
 
@@ -106,5 +107,40 @@ var catListView = {
 		}
 	}
 };
+
+
+// Admin View
+
+view adminView = {
+	init: function(){
+		this.adminElem = document.getElementByID('admin');
+		this.buttonElem = document.getElementByID('changeDetail');
+		this.formElem = document.getElementByID('details');
+		this.nameElem = document.getElementByID('nameLabel');
+		this.picElem = document.getElementByID('picLabel');
+		this.clickElem = document.getElementByID('clickLabel');
+
+		this.render();
+	},
+
+	render: function(){
+		var currentCat = octopus.getCurrentCat();
+		var nameElem = this.nameElem;
+		var picElem = this.picElem;
+		var clickElem = this.clickElem;
+
+		this.buttonElem.addEventListener('click', (function(currentCat){
+			return function(){
+				var currentCat = octopus.getCurrentCat();
+				document.getElementByID('details').style.display = 'block';
+				nameElem.setAttribute('value', currentCat.name);
+				picElem.setAttribute('value', currentCat.imgSrc);
+				clickElem.setAttribute('value', currentCat.clickCount);
+				adminView.render();
+			};
+		})(currentCat));
+	}
+};
+
 
 octopus.init();
