@@ -1,7 +1,0 @@
-Getting Started
-
-- index.html opens the online portfolio
--'css' folder contains all css code
--'img' folder contains all images
--'pdf' folder contains a pdf linked to an image in the portfolio
--'html' folder contains a html linked to an image in the portfolio
