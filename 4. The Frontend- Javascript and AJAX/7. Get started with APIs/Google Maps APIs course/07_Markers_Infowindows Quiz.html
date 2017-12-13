@@ -10,41 +10,44 @@ API Course, Lesson 1 -->
  </head>
  <body>
 	 <div id="map"></div>
-	 <script type="text/javascript">
-		 // Create a map variable
-		 var map;
-		 // Function to initialize the map within the map div
-		 function initMap() {
-			 map = new google.maps.Map(document.getElementById('map'), {
-				 center: {lat: 40.74135, lng: -73.99802},
-				 zoom: 14
-			 });
-			 // Create a single latLng literal object.
-			 var singleLatLng = {lat: 40.74135, lng: -73.99802};
-			 // TODO: Create a single marker appearing on initialize -
-			 // Create it with the position of the singleLatLng,
-			 // on the map, and give it your own title!
+	 <script>
+		// Create a map variable
+		var map;
+		// Function to initialize the map within the map div
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: 40.74135, lng: -73.99802},
+				zoom: 13
+			});
+			// Create a single latLng literal object.
+			var singleLatLng = {lat: 40.719526, lng: -74.0089934};
+			// TODO: Create a single marker appearing on initialize -
+			// Create it with the position of the singleLatLng,
+			// on the map, and give it your own title!
+			var marker = new google.maps.Marker({
+				position: singleLatLng,
+				map: map,
+				title: 'First Marker'
+			});
 
-			 var marker = new google.maps.Marker({
-			 	position: singleLatLng,
-			 	animation: google.maps.Animation.DROP
-			 });
+			// TODO: create a single infowindow, with your own content.
+			// It must appear on the marker
+			var infowindow = new google.maps.InfoWindow({
+				content: 'This is my InfoWindow!'
+			});
 
-			 markers.push(marker);
+			// TODO: create an EVENT LISTENER so that the infowindow opens when
+			// the marker is clicked!
 
+			marker.addListener('click', function() {
+				infowindow.open(map, marker);
+			});
+		}
 
-			 // TODO: create a single infowindow, with your own content.
-			 // It must appear on the marker
-
-			 // TODO: create an EVENT LISTENER so that the infowindow opens when
-			 // the marker is clicked!
-
-			 
-		 }
-	 </script>
-	 <!--TODO: Insert your API Key in the below call to load the API.-->
-	 <script async defer
-		 src="https://maps.googleapis.com/maps/api/js?v=3&key=XXX&callback=initMap">
-	 </script>
- </body>
+	</script>
+	<!--TODO: Insert your API Key in the below call to load the API.-->
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA63KAlRsMhde7LlCZV42Gvt9QfLHckGgs&v=3&callback=initMap">
+	</script>
+</body>
 </html>
