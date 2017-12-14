@@ -1,2 +1,26 @@
-html, body { height: 100%; margin: 0; padding: 0; }
-#map { height: 100%; }
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	height: 100%;
+	left: 25%;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+.container {
+	height: 100%;
+	position: relative;
+}
+
+.box {
+	background: #424949;
+	height: 100%;
+	padding: 10px 10px 10px 10px;
+	width: 25%;
+	text-align: left;
+}
