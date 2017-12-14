@@ -1,0 +1,31 @@
+<html>
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Neighborhood Map</title>
+</head>
+
+<body>
+	<div id="map"></div>
+	<script>
+		var map;
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {center: {lat: 41.7689162, lng: -88.3010038 }, zoom: 12
+		});
+
+			var locations = {lat: 41.796384, lng: -88.417474};
+			var marker = new google.maps.Marker({
+				position: locations,
+				map: map,
+				title: "Home"
+			});
+
+		}
+	</script>
+
+	<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA63KAlRsMhde7LlCZV42Gvt9QfLHckGgs&v=3&callback=initMap">
+	</script>
+
+</body>
+</html>
