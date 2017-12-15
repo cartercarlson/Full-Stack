@@ -53,6 +53,11 @@ var ViewModel = function() {
 	initialPoints.forEach(function(pointItem) {
 		self.pointList.push(new Point(pointItem));
 	});
+/*	this.currentPoint = ko.observable(this.pointList()[0]); */
+
+	this.setPoint = function(clickedPoint) {
+		self.currentPoint(clickedPoint);
+	};
 };
 
 

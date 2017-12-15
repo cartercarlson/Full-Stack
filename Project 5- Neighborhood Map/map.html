@@ -8,10 +8,17 @@
 <body>
 	<div class="container">
 		<div class="box">
-				<div data-bind="foreach: pointList">
-					<div class="section"> </div>
-					<ul data-bind="text: title"></ul>
-				</div>
+			<h2>Favorite Locations</h2>
+			<div data-bind="foreach: pointList">
+				<div class="section"> </div>
+				<ul data-bind="text: title"></ul>
+					<!--
+					<ul data-bind="text: lat" id="show-"></ul>
+					<div data-bind="with: currentPoint">
+						<h4 data-bind="text:lat"></h4>
+					</div>
+				-->
+			</div>
 		</div>
 	<div id="map"></div>
 	</div>
@@ -19,38 +26,105 @@
 
 	<script>
 		var map;
-
-		// Create array for markers
 		var markers = [];
 
 		function initMap() {
-			map = new google.maps.Map(document.getElementById('map'), {center: {lat: 41.7689162, lng: -88.3010038 }, zoom: 12
+			map = new google.maps.Map(document.getElementById('map'),
+				{center: {lat: 41.7689162, lng: -88.3010038 },
+				zoom: 12,
+				mapTypeControl: false
 		});
 
-			// Locations of interest
-			var locations = [
-			{title: 'Childhood home', location: {lat: 41.796384, lng: -88.417474}}
-			];
-
-
-
-
-
-
-			var marker = new google.maps.Marker({
-				position: locations,
-				map: map,
-				title: "Home"
-			});
-			var infowindow = new google.maps.InfoWindow({
-				content: "This is my where I lived until highschool"
-			});
-			marker.addListener('click', function() {
-				infowindow.open(map, marker);
-			});
-
-
+			var initialPoints = [
+		{
+			title: "Raging Waves Waterpark",
+			location: {lat: 41.6967971, lng: -88.4176992},
+			iconColor: "1F618D"
+		},
+		{
+			title: "Chicago Premium Outlets",
+			location: {lat: 41.7829187, lng: -88.3169258},
+			iconColor: "1E8449" 
+		},
+		{
+			title: "Chipotle",
+			location: {lat: 41.7546809, lng: -88.3936599},
+			iconColor: "BA4A00"
+		},
+		{
+			title: "Marmion Academy",
+			location: {lat: 41.8153066, lng: -88.2961499},
+			iconColor: "A93226"
+		},
+		{
+			title: "Phillips Park Zoo",
+			location: {lat: 41.7494086, lng: -88.3504218},
+			iconColor: "6C3483"
 		}
+	];
+
+		//var iconHighlighted = makeMarkerIcon('F2F3F4');
+		//var iconDefault = makeMarkerIcon('0091ff');
+		var largeInfoWindow = new google.maps.InfoWindow();
+		var iconHighlighted = makeMarkerIcon('F2F3F4');
+
+
+		for (var i = 0; i < initialPoints.length; i++) {
+			var position = initialPoints[i].location;
+			var title = initialPoints[i].title;
+			var iconColor = initialPoints[i].iconColor;
+			var iconDefault = makeMarkerIcon(iconColor);
+
+			// create a marker per location and put it in an array
+			var marker = new google.maps.Marker({
+				map: map,
+				position: position,
+				title: title,
+				icon: iconDefault,
+				id: i
+			});
+
+			// push the marker to our marker array
+			markers.push(marker);
+			// open large infowindow at each marker
+			marker.addListener('click', function () {
+				populateInfoWindow(this, largeInfoWindow);
+			});
+
+			// event listeners for mouseover and mouseout
+			marker.addListener('mouseover', function() {
+				this.setIcon(iconHighlighted);
+			});
+			marker.addListener('mouseout', function() {
+				this.setIcon(iconDefault);
+			});
+			
+	};
+
+	// This function loops through the markers array and displays them all
+  function showLocations() {
+    var bounds = new google.maps.LatLngBounds();
+    // Extend the boundaries of the map for each marker and display the marker
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(map);
+      bounds.extend(markers[i].position);
+    }
+    map.fitBounds(bounds);
+  }
+
+  // This function takes in a color and creates a marker icon of the color
+  function makeMarkerIcon(markerColor) {
+  var markerImage = new google.maps.MarkerImage(
+    'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+    '|40|_|%E2%80%A2',
+    new google.maps.Size(21, 34),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(10, 34),
+    new google.maps.Size(21,34));
+  return markerImage;
+}
+
+}
 	</script>
 
 
