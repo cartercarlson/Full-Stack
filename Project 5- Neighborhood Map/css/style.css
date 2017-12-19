@@ -21,7 +21,7 @@ header {
 	position: absolute;
 	bottom: 0px;
 	right: 0%;
-	left: 25%;
+	left: 0%;
 }
 
 #hide-locations,
@@ -48,7 +48,7 @@ header {
 	border-top: 1px solid #999;
 }
 
-#hamburger{
+#show-sidebar{
   background:none;
   position:absolute;
   left: 0;
@@ -59,17 +59,20 @@ header {
   cursor:pointer;
   outline:none;
   z-index:10000000000000;
+  display: inline-block;
+  float: left;
 }
 
-.cross{
+.hide-sidebar{
   background:none;
   position:absolute;
   left:0;
-  color:white;
+  color: #525454;
   border:0;
   font-size:3em;
   font-weight:bold;
   cursor:pointer;
   outline:none;
   z-index:10000000000000;
+  float: left;
   }

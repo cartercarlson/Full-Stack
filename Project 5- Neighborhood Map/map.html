@@ -5,8 +5,9 @@
 	<title>Neighborhood Map</title>
 </head>
 	<header>
+		<button id="show-sidebar">&#9776;</button>
+		<button id="hide-sidebar">&#8592;</button>
 		<span>Favorite Locations</span>
-		<button id="hamburger">&#9776;</button>
 
 	</header>
 <body>
@@ -68,7 +69,9 @@
 			location: {lat: 41.7494086, lng: -88.3504218},
 			iconColor: "6C3483"
 		}
-	];
+		];
+
+
 
 		//var iconHighlighted = makeMarkerIcon('F2F3F4');
 		//var iconDefault = makeMarkerIcon('0091ff');
@@ -105,41 +108,61 @@
 				this.setIcon(iconDefault);
 			});
 		}
+		}
 
-	document.getElementById('show-locations').addEventListener('click', showLocations);
-	document.getElementById('hide-locations').addEventListener('click', hideLocations);
 
-	// This function loops through the markers array and displays them all
-  function showLocations() {
-    var bounds = new google.maps.LatLngBounds();
-    // Extend the boundaries of the map for each marker and display the marker
-    for (var i = 0; i < markers.length; i++) {
-      markers[i].setMap(map);
-      bounds.extend(markers[i].position);
-    }
-    map.fitBounds(bounds);
-  }
+		// This function loops through the markers array and displays them all
+	  function showLocations() {
+	    var bounds = new google.maps.LatLngBounds();
+	    // Extend the boundaries of the map for each marker and display the marker
+	    for (var i = 0; i < markers.length; i++) {
+	      markers[i].setMap(map);
+	      bounds.extend(markers[i].position);
+	    }
+	    map.fitBounds(bounds);
+	  }
 
-  // This function will loop through the listings and hide them all.
-  function hideLocations() {
-    for (var i = 0; i < markers.length; i++) {
-      markers[i].setMap(null);
-    }
-  }
+	  // This function will loop through the listings and hide them all.
+	  function hideLocations() {
+	    for (var i = 0; i < markers.length; i++) {
+	      markers[i].setMap(null);
+	    }
+	  }
 
-}
+	  document.getElementById('hide-sidebar').style.display = "none";
 
-  // This function takes in a color and creates a marker icon of the color
-  function makeMarkerIcon(markerColor) {
-  var markerImage = new google.maps.MarkerImage(
-    'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
-    '|40|_|%E2%80%A2',
-    new google.maps.Size(21, 34),
-    new google.maps.Point(0, 0),
-    new google.maps.Point(10, 34),
-    new google.maps.Size(21,34));
-  return markerImage;
-	}
+	  function hideSidebar() {
+	  	document.getElementById('map').style.left = "0%";
+	  	document.getElementById('show-sidebar').style.display = "inline-block";
+	  	document.getElementById('hide-sidebar').style.display = "none";
+	  }
+
+	  function showSidebar() {
+	  	document.getElementById('map').style.left = "25%";
+	  	document.getElementById('show-sidebar').style.display = "none";
+	  	document.getElementById('hide-sidebar').style.display = "inline-block";
+	  }
+
+
+
+		document.getElementById('show-locations').addEventListener('click', showLocations);
+		document.getElementById('hide-locations').addEventListener('click', hideLocations);
+		document.getElementById('show-sidebar').addEventListener('click',
+			showSidebar);
+		document.getElementById('hide-sidebar').addEventListener('click',
+			hideSidebar);
+
+	  // This function takes in a color and creates a marker icon of the color
+	  function makeMarkerIcon(markerColor) {
+	  var markerImage = new google.maps.MarkerImage(
+	    'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+	    '|40|_|%E2%80%A2',
+	    new google.maps.Size(21, 34),
+	    new google.maps.Point(0, 0),
+	    new google.maps.Point(10, 34),
+	    new google.maps.Size(21,34));
+	  return markerImage;
+		}
 
 
 	</script>
