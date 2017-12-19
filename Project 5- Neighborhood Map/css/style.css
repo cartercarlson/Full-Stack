@@ -24,7 +24,12 @@ header {
 	left: 25%;
 }
 
-
+#hide-locations,
+#show-locations {
+	width: 49%;
+	position: relative;
+	padding: 5px;
+}
 
 .container {
 	height: 100%;

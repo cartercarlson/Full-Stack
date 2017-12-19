@@ -13,6 +13,8 @@
 
 	<div class="container">
 		<div class="box">
+			<input id="show-locations" type="button" value="Show Listings">
+			<input id="hide-locations" type="button" value="Hide Listings">
 			<div data-bind="foreach: pointList">
 				<div class="section"> </div>
 				<ul data-bind="text: title"></ul>
@@ -102,11 +104,10 @@
 			marker.addListener('mouseout', function() {
 				this.setIcon(iconDefault);
 			});
-		};
-}
+		}
 
-	// event listeners for mouseover and mouseout
-
+	document.getElementById('show-locations').addEventListener('click', showLocations);
+	document.getElementById('hide-locations').addEventListener('click', hideLocations);
 
 	// This function loops through the markers array and displays them all
   function showLocations() {
@@ -120,12 +121,13 @@
   }
 
   // This function will loop through the listings and hide them all.
-  function hideListings() {
+  function hideLocations() {
     for (var i = 0; i < markers.length; i++) {
       markers[i].setMap(null);
     }
   }
 
+}
 
   // This function takes in a color and creates a marker icon of the color
   function makeMarkerIcon(markerColor) {
