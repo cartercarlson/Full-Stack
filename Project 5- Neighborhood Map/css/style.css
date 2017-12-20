@@ -48,7 +48,7 @@ header {
 	border-top: 1px solid #999;
 }
 
-#show-sidebar{
+#show-sidebar {
   background:none;
   position:absolute;
   left: 0;
@@ -60,19 +60,20 @@ header {
   outline:none;
   z-index:10000000000000;
   display: inline-block;
-  float: left;
 }
 
-.hide-sidebar{
+.hide-sidebar {
   background:none;
   position:absolute;
-  left:0;
-  color: #525454;
+  top:0px;
+  right:0;
+  padding:7px 15px 0px 15px;
+  color:#999;
   border:0;
   font-size:3em;
+  line-height:65px;
   font-weight:bold;
   cursor:pointer;
   outline:none;
   z-index:10000000000000;
-  float: left;
-  }
+}
