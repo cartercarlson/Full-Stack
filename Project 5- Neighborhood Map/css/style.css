@@ -31,6 +31,10 @@ header {
 	padding: 5px;
 }
 
+.side {
+	left: 0%;
+}
+
 .container {
 	height: 100%;
 	position: relative;
@@ -60,20 +64,4 @@ header {
   outline:none;
   z-index:10000000000000;
   display: inline-block;
-}
-
-.hide-sidebar {
-  background:none;
-  position:absolute;
-  top:0px;
-  right:0;
-  padding:7px 15px 0px 15px;
-  color:#999;
-  border:0;
-  font-size:3em;
-  line-height:65px;
-  font-weight:bold;
-  cursor:pointer;
-  outline:none;
-  z-index:10000000000000;
 }
