@@ -21,7 +21,7 @@ header {
 	position: absolute;
 	bottom: 0px;
 	right: 0%;
-	left: 0%;
+	width: 100%;
 }
 
 #hide-locations,
@@ -52,6 +52,14 @@ header {
 	border-top: 1px solid #999;
 }
 
+.show-menu {
+	left: 25%;
+}
+
+.hide-menu {
+	left: 0%;
+}
+
 #show-sidebar {
   background:none;
   position:absolute;
@@ -65,3 +73,4 @@ header {
   z-index:10000000000000;
   display: inline-block;
 }
+

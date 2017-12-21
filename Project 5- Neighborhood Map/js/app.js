@@ -152,37 +152,18 @@
 	    }
 	  }
 
-	  function hideSidebar() {
-	  	document.getElementById('map').style.left = "0%";
-	  	document.getElementById('show-sidebar').style.display = "inline-block";
-	  	document.getElementById('hide-sidebar').style.display = "none";
+	  // Hide or show side bar
+		function showSidebar() {
+	  	$('#map').toggleClass("show-menu");
+	  	$('#map').toggleClass("hide-menu");
 	  }
 
-	  function showSidebar() {
-	  	if($('#map').css("left","25%")) {
-	  		$('#map').css("left","0%")
-	  	} else if ($('#map').css("left","0%")) {
-	  		$('#map').css("left","25%")
-	  	};
-	  	//if(document.getElementById('map').style.left = "0%") {
-			//	document.getElementById('map').style.left = "25%";
-			//} else {
-			//	document.getElementById('map').style.left = "0%";
-			//};
-		}
-
-
-
+	  // Event listeners 
 		document.getElementById('show-locations').addEventListener('click', showLocations);
 		document.getElementById('hide-locations').addEventListener('click', hideLocations);
-
-
-
 		document.getElementById('show-sidebar').addEventListener('click', showSidebar);
 
-		document.getElementById('hide-sidebar').addEventListener('click', hideSidebar);
-
-	  // This function takes in a color and creates a marker icon of the color
+	  // Tale in a color and create a marker icon of the color
 	  function makeMarkerIcon(markerColor) {
 	  var markerImage = new google.maps.MarkerImage(
 	    'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
