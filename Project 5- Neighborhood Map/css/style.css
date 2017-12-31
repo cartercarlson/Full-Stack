@@ -23,9 +23,6 @@ ul {
 	border-bottom: 1px solid #999;
 }
 
-a {
-}
-
 #map {
 	height: 100%;
 	position: absolute;
@@ -41,38 +38,6 @@ a {
 	padding: 5px;
 }
 
-.side {
-	left: 0%;
-}
-
-.container {
-	height: 100%;
-	position: relative;
-}
-
-.box {
-	height: 100%;
-	width: 25%;
-	text-align: left;
-}
-
-.section:hover {
-	background: #dddddd;
-}
-
-.section {
-	background: #fff;
-	color: black;
-}
-
-.show-menu {
-	left: 25%;
-}
-
-.hide-menu {
-	left: 0%;
-}
-
 #show-sidebar {
   background:none;
   position:absolute;
@@ -85,4 +50,32 @@ a {
   outline:none;
   z-index:10000000000000;
   display: inline-block;
+}
+
+.box {
+	height: 100%;
+	width: 25%;
+	text-align: left;
+}
+
+.container {
+	height: 100%;
+	position: relative;
+}
+
+.hide-menu {
+	left: 0%;
+}
+
+.section {
+	background: #fff;
+	color: black;
+}
+
+.section:hover {
+	background: #dddddd;
+}
+
+.show-menu {
+	left: 25%;
 }
