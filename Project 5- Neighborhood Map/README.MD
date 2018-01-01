@@ -29,8 +29,7 @@ about those locations and various ways to browse the content.
 Where the magic happens
 
 #### js (folder)
-JavaScript needed to run with index.html.  Includes the [Knockout library]
-(http://knockoutjs.com/)
+JavaScript needed to run with index.html.  Includes the [Knockout library](http://knockoutjs.com/)
 
 #### css (folder)
 Added for style
