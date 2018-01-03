@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/style.css">
 	<title>Neighborhood Map</title>
 </head>
@@ -27,8 +28,8 @@
 	<script src="js/oauth-signature.min.js"></script>
 	<script src="js/app.js"></script>
 
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA63KAlRsMhde7LlCZV42Gvt9QfLHckGgs&v=3&callback=initMap">
-	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA63KAlRsMhde7LlCZV42Gvt9QfLHckGgs&v=3&callback=initMap"
+	async defer onerror="mapError()"></script>
 
 </body>
 </html>
