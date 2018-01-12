@@ -3,11 +3,15 @@
 #### Note:
 I was able to complete most of this project on my own using my experience and
 code from previous lessons.  I had a lot of trouble with the Yelp API so I
-used a a [Udacity forum discussion](https://discussions.udacity.com/t/yelp-v3-implementation/235928/18/) for a good
+used a [Udacity forum discussion](https://discussions.udacity.com/t/yelp-v3-implementation/235928/18/) for a good
 starting point.  I got stuck again with the API [so I asked my own question](https://discussions.udacity.com/t/yelp-v3-very-close-please-help/493752/3/).
-Unfortunately, it wasn't helpful for me and I remain stuck.  I left my API code
-commented out so you can look at it and see what I need to change.  This is the
-first submission so I hope it's an otherwise good one! :)
+Unfortunately, it wasn't helpful for me and I remain stuck.  The first reviewer did not help with code revisions
+for the API: instead, all they gave me links to the Yelp API documentation,
+which I have already tried using.
+
+I also had issues with my filter using [the Knockout template](http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html) so I posted another
+[question](https://discussions.udacity.com/t/filter-from-knockout-error/506443) on the forum for feedback but wasn't able to find a solution.
+
 
 ## Introduction
 The purpose of this project is to develop a single page application featuring a
