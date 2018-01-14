@@ -108,8 +108,6 @@ $.ajax({
 // I can't tell if I should use both POST and GET, or just one or the other.  My other problem
 // is displaying the returned information in the infowindow.
 
-
-
     // create a marker per location and put it in an array
     marker = new google.maps.Marker({
         map: map,
@@ -168,6 +166,7 @@ function showLocations() {
     for (i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
         bounds.extend(markers[i].position);
+        adjustMarker(i);
     }
 
     google.maps.event.addDomListener(window, 'resize', function () {
@@ -189,9 +188,8 @@ function showSidebar() {
 }
 
 
-function adjustMarker() {
-    for (i = 0; i < markers.length; i++) {
-        google.maps.event.trigger(markers[i], 'click');
+function adjustMarker(marker) {
+        google.maps.event.trigger(markers[marker], 'click');
     }
 }
 
@@ -238,10 +236,6 @@ var ViewModel = function() {
     });
 
     this.currentPoint = ko.observable(this.pointList()[0]);
-
-    this.openMarker = function () {
-        adjustMarker
-    }
 
     this.setPoint = function() {
         populateInfoWindow
