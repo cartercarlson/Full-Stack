@@ -62,27 +62,7 @@ for (var i = 0; i < initialPoints.length; i++) {
     var iconDefault = makeMarkerIcon("1F818D");
     }
 }
-// Yelp oauth
-/*
-      var bearerToken;
-      var cors_anywhere_url = "https://cors-anywhere.herokuapp.com/";
-      var yelp_auth_url = cors_anywhere_url + "https://api.yelp.com/oauth2/token";
-      $.ajax({
-          url: yelp_auth_url,
-          type: "POST",
-          data: {
-              client_secret: "Y3RWO7eFpu5bJYRarOFvTAm86Qez8qB8LdWPG9dia9oJlIJGqDCtnr6SQEJgqHO",
-              client_id: "2VGbrnpR6An-WQ6o55yRdQ",
-              grant_type: "client_credentials"
-          },
-             headers: {"Authorization" : "Bearer " + bearerToken}
-      }).done(function(response){
-          bearerToken = response.access_token;
-          console.log (response);
-      }).fail(function(error){
-          console.log("An error occured in getting Yelp access token!");
-      });
-*/
+
 var bearerToken;
 var cors_anywhere_url = "https://cors-anywhere.herokuapp.com/";
 var yelp_auth_url = cors_anywhere_url + "https://api.yelp.com/oauth2/token";
@@ -111,8 +91,7 @@ $.ajax({
         map: map,
         position: position,
         title: title,
-        icon: iconDefault, // wasn't able to use the custom colors for each point.  After
-                           // the hover event, the icon changes to the last looped color.
+        icon: iconDefault,
         id: i,
         animation: google.maps.Animation.DROP
     });
