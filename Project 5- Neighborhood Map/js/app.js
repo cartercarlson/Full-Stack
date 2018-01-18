@@ -60,8 +60,8 @@ for (var i = 0; i < initialPoints.length; i++) {
     var iconColor = initialPoints[i].iconColor;
     // var yelp_url = initialPoints[i].website;
     var iconDefault = makeMarkerIcon("1F818D");
-
-
+    }
+}
 // Yelp oauth
 /*
       var bearerToken;
@@ -103,8 +103,6 @@ $.ajax({
     console.log("An error occured in getting Yelp access token!");
 });
 
-
-
 // I can't tell if I should use both POST and GET, or just one or the other.  My other problem
 // is displaying the returned information in the infowindow.
 
@@ -135,8 +133,6 @@ $.ajax({
     marker.addListener("mouseout", function() {
         this.setIcon(iconDefault);
     });
-
-}
 }
 
 // Create/populate infowindow for each marker
@@ -190,7 +186,6 @@ function showSidebar() {
 
 function adjustMarker(marker) {
         google.maps.event.trigger(markers[marker], 'click');
-    }
 }
 
 // Event listeners
