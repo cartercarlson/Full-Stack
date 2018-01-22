@@ -37,7 +37,7 @@ var initialPoints = [
     website: "https://api.yelp.com/v3/businesses/phillips-park-zoo-aurora/reviews",
     image: ""
 }
-];
+];//end of initialPoints declaration
 
 var map;
 var markers = [];
@@ -48,20 +48,63 @@ function initMap() {
         {center: {lat: 41.7689162, lng: -88.3010038 },
         zoom: 12,
         mapTypeControl: false
-});
+        });
 
-largeInfoWindow = new google.maps.InfoWindow();
-var iconHighlighted = makeMarkerIcon("F2F3F4");
+    largeInfoWindow = new google.maps.InfoWindow();
+    var iconHighlighted = makeMarkerIcon("F2F3F4");
 
-// Loop through the points and give each point information
-for (var i = 0; i < initialPoints.length; i++) {
-    var title = initialPoints[i].title;
-    var position = initialPoints[i].location;
-    var iconColor = initialPoints[i].iconColor;
-    // var yelp_url = initialPoints[i].website;
-    var iconDefault = makeMarkerIcon("1F818D");
-    }
-}
+    // Loop through the points and give each point information
+    for (var i = 0; i < initialPoints.length; i++) {
+        var title = initialPoints[i].title;
+        var position = initialPoints[i].location;
+        var iconColor = initialPoints[i].iconColor;
+        // var yelp_url = initialPoints[i].website;
+        var iconDefault = makeMarkerIcon("1F818D");
+
+        // create a marker per location and put it in an array
+        marker = new google.maps.Marker({
+            map: map,
+            position: position,
+            title: title,
+            icon: iconDefault,
+            id: i,
+            animation: google.maps.Animation.DROP
+        });
+
+        // push the marker to our marker array
+        markers.push(marker);
+        // open large infowindow at each marker
+        marker.addListener("click", function () {
+            populateInfoWindow(this, largeInfoWindow);
+        });
+
+        // Have the location box highlight when it's hovered over
+        marker.addListener("mouseover", function() {
+            this.setIcon(iconHighlighted);
+        });
+        marker.addListener("mouseout", function() {
+            this.setIcon(iconDefault);
+        });
+    }//end of loop
+    function populateInfoWindow(marker, infowindow) {
+    // Is infowindow already open?
+        if (infowindow.marker != marker) {
+            infowindow.setContent("");
+            infowindow.marker = marker;
+            // Clear marker if infowindow is closed
+            infowindow.addListener("closeclick", function () {
+                infowindow.marker = null;
+            });
+
+            infowindow.setContent("<div>" + marker.title + "</div>" +
+                "<div></div>");
+
+            infowindow.open(map, marker);
+        }
+    }//end of populateInfoWindow function
+}//end of initMap function
+
+
 
 var bearerToken;
 var cors_anywhere_url = "https://cors-anywhere.herokuapp.com/";
@@ -81,56 +124,10 @@ $.ajax({
     console.log(response);
 }).fail(function(error) {
     console.log("An error occured in getting Yelp access token!");
-});
-
-// I can't tell if I should use both POST and GET, or just one or the other.  My other problem
-// is displaying the returned information in the infowindow.
-
-    // create a marker per location and put it in an array
-    marker = new google.maps.Marker({
-        map: map,
-        position: position,
-        title: title,
-        icon: iconDefault,
-        id: i,
-        animation: google.maps.Animation.DROP
-    });
-
-
-    // push the marker to our marker array
-    markers.push(marker);
-    // open large infowindow at each marker
-    marker.addListener("click", function () {
-        populateInfoWindow(this, largeInfoWindow);
-    });
-
-
-    // Have the location box highlight when it's hovered over
-    marker.addListener("mouseover", function() {
-        this.setIcon(iconHighlighted);
-    });
-    marker.addListener("mouseout", function() {
-        this.setIcon(iconDefault);
-    });
-}
+});//end of ajax call
 
 // Create/populate infowindow for each marker
-function populateInfoWindow(marker, infowindow) {
-    // Is infowindow already open?
-    if (infowindow.marker != marker) {
-        infowindow.setContent("");
-        infowindow.marker = marker;
-        // Clear marker if infowindow is closed
-        infowindow.addListener("closeclick", function () {
-            infowindow.marker = null;
-        });
-
-        infowindow.setContent("<div>" + marker.title + "</div>" +
-            "<div></div>");
-
-        infowindow.open(map, marker);
-    }
-}
+    
 
 var i;
 
@@ -147,25 +144,25 @@ function showLocations() {
     google.maps.event.addDomListener(window, 'resize', function () {
     map.fitBounds(bounds);
     });
-}
+}//end of showLocations function
 
 // Loop through the listings and hide them all.
 function hideLocations() {
     for (i = 0; i < markers.length; i++) {
           markers[i].setMap(null);
     }
-}
+}//end of hideLocations function
 
 // Hide or show side bar
 function showSidebar() {
     $("#map").toggleClass("show-menu");
     $("#map").toggleClass("hide-menu");
-}
+}//end of showSidebar function
 
 
 function adjustMarker(marker) {
         google.maps.event.trigger(markers[marker], 'click');
-}
+}//end of adjustMarker function
 
 // Event listeners
 document.getElementById("show-locations").addEventListener("click", showLocations);
@@ -184,24 +181,26 @@ function makeMarkerIcon(markerColor) {
     new google.maps.Size(21,34)
     );
     return markerImage;
-}
+}//end of makeMarkerIcon function
 
 
 // Error handling
 mapError = () => {
     // error handling here
-};
+};//end of mapError function
 
 var Point = function(data) {
 
     var self = this;
     this.title = ko.observable(data.title);
     this.iconColor = ko.observable(data.iconColor);
-};
+};//end of Point declaration
 
 
 var ViewModel = function() {
     var self = this;
+
+    this.filter = ko.observable('');
 
     this.pointList = ko.observableArray([]);
 
@@ -212,10 +211,13 @@ var ViewModel = function() {
     this.currentPoint = ko.observable(this.pointList()[0]);
 
     this.setPoint = function() {
-        populateInfoWindow
-    }
+        populateInfoWindow;
+    };
+};//end of ViewModel declaration
 
     // http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
+
+/*
     this.filteredItems = function() {
         var filter = this.filter().toLowerCase();
             if (!filter) {
@@ -225,8 +227,8 @@ var ViewModel = function() {
                     return ko.utils.stringStartsWith(item.name().toLowerCase(), filter);
                 });
             }
-        }
+        };
 };
-
+*/
 
 ko.applyBindings(new ViewModel());
