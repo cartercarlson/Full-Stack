@@ -197,11 +197,25 @@ var Point = function(data) {
 };//end of Point declaration
 
 
-var ViewModel = function() {
+ViewModel = function() {
     var self = this;
 
     this.filter = ko.observable('');
+/*
+http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
+I keep getting the error "this.filter is not a function" but can't figure out why.
 
+    this.filteredItems = ko.computed(function() {
+        var filter = this.filter().toLowerCase();
+        if (!filter) {
+            return this.items();
+        } else {
+            return ko.utils.arrayFilter(this.items(), function(item) {
+                return ko.utils.stringStartsWith(item.name().toLowerCase(), filter);
+            });
+        }
+    });
+*/
     this.pointList = ko.observableArray([]);
 
     initialPoints.forEach(function(pointItem) {
@@ -214,21 +228,5 @@ var ViewModel = function() {
         populateInfoWindow;
     };
 };//end of ViewModel declaration
-
-    // http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
-
-/*
-    this.filteredItems = function() {
-        var filter = this.filter().toLowerCase();
-            if (!filter) {
-                return this.items();
-            } else {
-                return ko.utils.arrayFilter(this.items(), function(item) {
-                    return ko.utils.stringStartsWith(item.name().toLowerCase(), filter);
-                });
-            }
-        };
-};
-*/
 
 ko.applyBindings(new ViewModel());

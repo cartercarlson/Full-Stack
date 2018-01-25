@@ -19,7 +19,7 @@
 			<input id="hide-locations" type="button" value="Hide Locations">
 			<p> Filter: <input data-bind="value: filter, valueUpdate: 'afterkeydown'"/></p></a><hr>
 			<div data-bind="foreach: pointList">
-				<ul class="section" data-bind="text: title, click: openMarker "></ul>
+				<ul class="section" data-bind="text: title"></ul>
 			</div>
 		</div>
 		<div class="show-menu" id="map"></div>
