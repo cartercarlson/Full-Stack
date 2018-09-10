@@ -1,21 +1,18 @@
 # Neighborhood Map Application
 
-## Introduction
 The purpose of this project is to develop a single page application featuring a
 map and neighborhood or neighborhood you would like to visit.  I decided to
 create my project on popular locations near my house.  After that, you add
 functionality to the map by including highlighted locations, third-party data
 about those locations and various ways to browse the content.
 
----
 
 ## Getting Started
 1. Clone or download this repository
 2. Open map.index
 
----
 
-### Files Included
+## Files Included
 #### map.index
 Where the magic happens
 
@@ -28,9 +25,8 @@ Added for style
 #### yelp-fusion(folder)
 Folder including the API information for Yelp.  Work in progress
 
----
 
-### Lessons Learned
+## Lessons Learned
 I already expected to do a good amount of self-guided work with this project.
 Working through this project on my own, I was able to improve my web-navigating
 skills by learning the right search techniques to troubleshoot code.  Now that I
